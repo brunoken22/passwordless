@@ -8,10 +8,10 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
    // const fechaFin = parseISO("2023-06-15");
    // const diferencia = differenceInDays(fechaFin, fechaInicio);
    // console.log(diferencia);
-   const seed = "My Secret String Value";
-   const rand = gen.create(seed);
-   const result = rand.floatBetween(100, 200);
-   console.log(result);
+   // const seed = "My Secret String Value";
+   // const rand = gen.create(seed);
+   // const result = rand.floatBetween(100, 200);
+   // console.log(result);
 
-   res.send(process.env.Name);
+   res.send("process.env.Name");
 }
