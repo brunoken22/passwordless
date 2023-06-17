@@ -12,6 +12,7 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
    // const rand = gen.create(seed);
    // const result = rand.floatBetween(100, 200);
    // console.log(result);
+   console.log(process.env.Name);
 
-   res.send("process.env.Name");
+   res.send(process.env.Name);
 }
