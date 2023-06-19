@@ -10,19 +10,22 @@ export async function findOrCreateAuth(email: string) {
    const auth = await Auth.findByEmail(cleanEmail);
 
    if (auth) {
-      // const first = user.docs[0].data;
       console.log("Existe");
       return auth;
    } else {
       console.log("Creando");
-      const user = new User();
-      const auth = new Auth();
-      const newUser = await user.create({ email: cleanEmail });
-      const newAuth = await auth.create({
+
+      const newUser = await User.create({ email: cleanEmail });
+      const newAuth = await Auth.create({
          email: cleanEmail,
          userId: newUser.id,
+         code: "",
+         expires: "",
       });
-      return auth;
+
+      const newAuthFinal = new Auth(newAuth.id);
+      await newAuthFinal.pull();
+      return newAuthFinal;
    }
 }
 
@@ -32,6 +35,7 @@ export async function sendCode(email: string) {
    const aleat = ramdom.intBetween(10000, 99999);
    const now = new Date();
    const temp = addMinutes(now, 60);
+
    auth.data.code = aleat;
    auth.data.expires = temp;
    await auth.push();

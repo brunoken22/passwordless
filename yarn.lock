@@ -1269,6 +1269,11 @@ p-limit@^3.0.1:
   dependencies:
     yocto-queue "^0.1.0"
 
+parse-bearer-token@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/parse-bearer-token/-/parse-bearer-token-1.0.1.tgz#43b5222a8e6e73e4c8e44973c95856548452b266"
+  integrity sha512-64FLw+pKZQPnoHqryZ7aGqpIc5ud2Xe1TnxBbK5CmUhJtYjVTKt//BLTP/zYhVs3O5OWsCDdqyoPnYd3SivQOA==
+
 path-is-absolute@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"

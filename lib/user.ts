@@ -1,12 +1,12 @@
 import { firebase } from "./firebase";
 
+const collection = firebase.collection("users");
 export class User {
-   collection = firebase.collection("users");
-   ref: FirebaseFirestore.DocumentData;
+   ref: FirebaseFirestore.DocumentReference;
    data: any;
    constructor(id?: string) {
       if (id) {
-         this.ref = this.collection.doc(id);
+         this.ref = collection.doc(id);
       }
    }
 
@@ -19,14 +19,15 @@ export class User {
       this.ref.update(this.data);
    }
 
-   async create(data) {
-      const newUser = await this.collection.add(data);
-      return newUser;
+   static async create(data) {
+      const newUserSnap = await collection.add(data);
+      const newUser = new User(newUserSnap.id);
+      newUser.data = data;
+      return newUserSnap;
    }
 
    async findByEmail(email: string) {
       const cleanEmail = email.trim().toLowerCase();
-      console.log(cleanEmail);
       return cleanEmail;
    }
 }

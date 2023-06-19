@@ -1,8 +1,7 @@
 import { firebase } from "./firebase";
-
 const collection = firebase.collection("auth");
 export class Auth {
-   ref: FirebaseFirestore.DocumentData;
+   ref: FirebaseFirestore.DocumentReference;
    data: any;
    constructor(id?: string) {
       if (id) {
@@ -19,12 +18,11 @@ export class Auth {
       this.ref.update(this.data);
    }
 
-   async create(data) {
-      const newUser = await collection.add({
-         ...data,
-      });
-      // this.data = newUser;
-      return newUser;
+   static async create(data) {
+      const newAuthSnap = await collection.add(data);
+      const newAuth = new Auth(newAuthSnap.id);
+      newAuth.data = data;
+      return newAuthSnap;
    }
 
    static async findByEmail(email: string) {
@@ -34,7 +32,6 @@ export class Auth {
          const first = user.docs[0];
          const newAuth = new Auth(first.id);
          newAuth.data = first.data();
-         console.log(first);
          return newAuth;
       }
       return null;
