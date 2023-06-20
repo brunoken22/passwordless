@@ -12,8 +12,6 @@ import { User } from "lib/user";
 // });
 
 async function handler(req: NextApiRequest, res: NextApiResponse, token: any) {
-   console.log(token);
-
    const user = new User(token.id);
    await user.pull();
    res.send(user.data);
