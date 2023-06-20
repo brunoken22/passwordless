@@ -9,5 +9,4 @@ if (!admin.app.length) {
    });
 }
 const firebase = admin.firestore();
-
 export { firebase };

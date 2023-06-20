@@ -8,8 +8,10 @@ export function authMiddelware(callback) {
       if (!token) {
          res.status(401).send("No hay Token");
       }
+      console.log(token);
 
       const tokenVerify = decode(token);
+      console.log(tokenVerify);
 
       if (tokenVerify) {
          callback(req, res, tokenVerify);
