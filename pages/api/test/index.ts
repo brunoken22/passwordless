@@ -1,8 +1,8 @@
-import { NextApiRequest,NextApiResponse} from 'next'
-import methods from 'micro-method-router'
+import { NextApiRequest, NextApiResponse } from "next";
+import methods from "micro-method-router";
 
 export default methods({
-   get(req:NextApiRequest,res:NextApiResponse){
-      res.send("Test")
-   }
-})
+   get(req: NextApiRequest, res: NextApiResponse) {
+      res.send("test");
+   },
+});
