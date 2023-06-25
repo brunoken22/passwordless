@@ -37,7 +37,7 @@ export async function sendCode(email: string, name: string) {
    auth.data.expires = temp;
    await auth.push();
 
-   // sendinblue({ code: aleat, name, email });
+   sendinblue({ code: aleat, name, email });
    return auth;
 }
 
