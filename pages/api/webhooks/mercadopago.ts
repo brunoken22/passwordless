@@ -2,7 +2,7 @@ import { getMerchantOrder } from "lib/mercadopago";
 import { Order } from "lib/order";
 
 export default async function (req, res) {
-   const { id, topic } = req.boy;
+   const { id, topic } = req.body;
    if (topic == "merchant_order") {
       const order = await getMerchantOrder(10028313247);
       if (order.order_status == "paid") {
