@@ -3,7 +3,7 @@ import { Order } from "lib/order";
 
 export default async function (req, res) {
    const { id, topic } = req.query;
-   console.log(req.body);
+   console.log(req.query);
 
    if (topic == "merchant_order") {
       const order = await getMerchantOrder(id);
