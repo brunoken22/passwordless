@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { authMiddelware } from "lib/middelware";
-import { User } from "lib/user";
 import { Order } from "lib/order";
 import { createPreference } from "lib/mercadopago";
 import methods from "micro-method-router";
