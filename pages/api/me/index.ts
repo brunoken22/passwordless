@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import methods from "micro-method-router";
 import { authMiddelware } from "lib/middelware";
 import { User } from "lib/user";
 

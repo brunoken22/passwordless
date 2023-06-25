@@ -5,6 +5,7 @@ import { decode } from "lib/jwt";
 export function authMiddelware(callback) {
    return function (req: NextApiRequest, res: NextApiResponse) {
       const token = parseBearerToken(req);
+
       if (!token) {
          res.status(401).send("No hay Token");
       }
