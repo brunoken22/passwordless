@@ -33,6 +33,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse, token: any) {
          pending: "https://desafio-m8-d396d.web.app/login",
       },
       external_reference: order.id,
+      notification_url: "https://passwordless-sooty.vercel.app/",
    });
    res.send({ url: preference.init_point });
 }

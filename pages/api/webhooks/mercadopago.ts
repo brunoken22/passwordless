@@ -10,6 +10,7 @@ export default async function (req, res) {
          const newOrder = new Order(orderId);
          await newOrder.pull;
          newOrder.data.status = "closed";
+         await newOrder.push();
       }
    }
 }
