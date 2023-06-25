@@ -4,8 +4,7 @@ import gen from "random-seed";
 import { addMinutes, differenceInMinutes, format } from "date-fns";
 import { sendinblue } from "lib/sendinblue";
 import { decode, token } from "lib/jwt";
-const str = "BrunoKen";
-const ramdom = gen.create(str);
+const ramdom = gen.create();
 export async function findOrCreateAuth(email: string, name: string) {
    const cleanEmail = email.trim().toLowerCase();
    const auth = await Auth.findByEmail(cleanEmail);
