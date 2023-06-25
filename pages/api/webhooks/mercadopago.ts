@@ -2,7 +2,7 @@ import { getMerchantOrder } from "lib/mercadopago";
 import { Order } from "lib/order";
 
 export default async function (req, res) {
-   const { id, topic } = req.body;
+   const { id, topic } = req.query;
    console.log(req.body);
 
    if (topic == "merchant_order") {
