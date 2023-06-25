@@ -10,7 +10,7 @@ export default async function (req, res) {
       if (order.order_status == "paid") {
          const orderId = order.external_reference;
          const newOrder = new Order(orderId);
-         await newOrder.pull;
+         await newOrder.pull();
          newOrder.data.status = "closed";
          await newOrder.push();
       }
